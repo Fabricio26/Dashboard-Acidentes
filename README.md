@@ -1,4 +1,4 @@
-<h1 align="center"> Tabela online </h1>
+<h1 align="center"> Dashboard de Acidentes </h1>
 
 Um filtro para facilitar a pesquisa de códigos de requisição de material, para quem esta na área sem ascesso ao sistema da empresa.
 
