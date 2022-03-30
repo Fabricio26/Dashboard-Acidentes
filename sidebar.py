@@ -97,16 +97,16 @@ app.layout = html.Div([
 
 def render_page_content(pathname, value):
     if pathname == "/":
-        return f"ACUMULADO IRA %:", df.loc[df["Ano"] == value]["IRA %"].sum()
+        return f"ACUMULADO IRA %:", round(df.loc[df["Ano"] == value]["IRA %"].sum(), 2)
     elif pathname == "/page-1":
-        return f"ACUMULADO IAG:", df.loc[df["Ano"] == value]["IAG"].sum()
+        return f"ACUMULADO IAG:", round(df.loc[df["Ano"] == value]["IAG"].sum(), 2)
     elif pathname == "/page-2":
-        return f"ACUMULADO GRAVIDADE:", df.loc[df["Ano"] == value]["TAXA DE GRAVIDADE"].sum()
+        return f"ACUMULADO GRAVIDADE:", round(df.loc[df["Ano"] == value]["TAXA DE GRAVIDADE"].sum(), 2)
     elif pathname == "/page-3":
-        return f"ACUMULADO FREQUÊNCIA:", df.loc[df["Ano"] == 
-        value]["TAXA DE FREQUÊNCIA TOTAL DOS ACIDENTES"].sum()
+        return f"ACUMULADO FREQUÊNCIA:", round(df.loc[df["Ano"] == 
+        value]["TAXA DE FREQUÊNCIA TOTAL DOS ACIDENTES"].sum(), 2)
     elif pathname == "/page-4":
-        return f"ACUMULADO CUSTO R$:", df.loc[df["Ano"] == value]["VALOR DIAS PERDIDOS R$"].sum()
+        return f"ACUMULADO CUSTO R$:", round(df.loc[df["Ano"] == value]["VALOR DIAS PERDIDOS R$"].sum(), 2)
 
 @app.callback(
     Output("page-content", "children"),
