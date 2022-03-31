@@ -8,4 +8,4 @@ Dash para tomada de decisão para usar online
 
  ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=V1.0.1&color=BLUE&style=for-the-badge)
  
- ![Video demonstração](https://github.com/fabriciogama26/Dashboard-Acidentes/blob/main/dash.gif))
+ ![Video demonstração](https://github.com/fabriciogama26/Dashboard-Acidentes/blob/main/dash.gif)
