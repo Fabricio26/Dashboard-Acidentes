@@ -7,9 +7,9 @@ from dash.dependencies import Input, Output
 import pandas as pd
 
 
-df = pd.read_excel("Dashboard-Acidentes\\Estatistica acidentes.xlsx")
+df = pd.read_excel("Estatistica acidentes.xlsx")
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MATERIA])
 
 valor_decresente = df.sort_values("VALOR DIAS PERDIDOS R$")
 
@@ -25,6 +25,8 @@ SIDEBAR_STYLE = {
     "width": "16rem",
     "padding": "2rem 1rem",
     "background-color": "#00CED1",
+    "color": "#000000"
+   
    
 }
 
@@ -33,6 +35,8 @@ CONTENT_STYLE = {
     "margin-left": "18rem",
     "margin-right": "2rem",
     "padding": "2rem 1rem",
+    
+    
 }
 
 sidebar = html.Div(
@@ -62,17 +66,21 @@ content = html.Div(id="page-content", children=[], style=CONTENT_STYLE)
 app.layout = html.Div([
     html.P("ANO DE EXIBIÇÃO", style={"padding-left": "19rem", "margin-top": "40px", "color": "#00CED1" }),
     dbc.Row([
-        dcc.Dropdown(
-            opcoes,
-            value="2016", 
-            id="lista_ano",
-            style={
-                "margin-left": "9.5rem",
-                'width': "35%",
-                'textAlign': 'center',
-                'color': '#00FFFF'                    
-            } 
-        ),
+        dbc.Col([
+            dcc.Dropdown(
+                opcoes,
+                value="2016", 
+                id="lista_ano",
+                style={
+                    "margin-left": "9.5rem",
+                    'width': "40%",
+                    'textAlign': 'center',
+                    'color': '#00FFFF'                    
+                } 
+            ),
+        
+    ]),
+    dbc.Col([
         dbc.Card([
             dbc.CardBody([
                 html.Span("ACUMULADO IRA %:", id="textodacaixa", style={"color": "#00CED1"}),
@@ -80,13 +88,14 @@ app.layout = html.Div([
                                       
             ], style={"background": "#FFFAFA"}
             )   
-        ], style={"margin-left": "21rem", 'width': "20%", "background-color": "#00CED1"})
+        ], style={"margin-left": "21rem", 'width': "30%"})
+
+    ]),
     ]),
     dcc.Location(id="url"),
     sidebar,
     content,
-    ]
-)
+])
 
 @app.callback(
     Output("textodacaixa", "children"),
